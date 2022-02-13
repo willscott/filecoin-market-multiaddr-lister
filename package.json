@@ -1,0 +1,29 @@
+{
+  "name": "filecoin-market-multiaddr-lister",
+  "version": "1.0.0",
+  "description": "list filecoin market multiaddrs",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/willscott/filecoin-market-multiaddr-lister.git"
+  },
+  "keywords": [
+    "filecoin"
+  ],
+  "author": "Will Scott <will.scott@protocol.ai> (https://wills.co.tt)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/willscott/filecoin-market-multiaddr-lister/issues"
+  },
+  "type": "module",
+  "homepage": "https://github.com/willscott/filecoin-market-multiaddr-lister#readme",
+  "dependencies": {
+    "@filecoin-shipyard/lotus-client-provider-nodejs": "^1.0.5",
+    "@filecoin-shipyard/lotus-client-rpc": "^1.1.4",
+    "@filecoin-shipyard/lotus-client-schema": "^4.0.7",
+    "multiaddr": "^10.0.1"
+  }
+}

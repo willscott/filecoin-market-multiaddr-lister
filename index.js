@@ -2,6 +2,7 @@ import { LotusRPC } from '@filecoin-shipyard/lotus-client-rpc'
 import { NodejsProvider } from '@filecoin-shipyard/lotus-client-provider-nodejs'
 import { mainnet } from '@filecoin-shipyard/lotus-client-schema'
 import { multiaddr } from 'multiaddr'
+import fetch from 'node-fetch'
 
 
 const url = 'https://api.node.glif.io/rpc/v0'
@@ -26,6 +27,26 @@ async function getInfoFor(miner) {
                 const bytes = _base64ToArrayBuffer(addr)
                 const ma = multiaddr(bytes)
                 console.log(ma.encapsulate('/p2p/' + info.PeerId).toString())
+
+                const data = {
+                    Cid: '',
+                    Addrs: [ma.encapsulate('/p2p/' + info.PeerId).toString()]
+                };
+
+                const url = 'http://abcca6d4490f0426d9dd855139563762-159596440.us-east-2.elb.amazonaws.com:3001/ingest/announce';
+                try {
+                    const response = await fetch(url, {
+                        method: 'PUT',
+                        mode: 'same-origin',
+                        headers: {
+                            'Content-Type': 'application/json'
+                        },
+                        body: JSON.stringify(data)
+                    })
+                    console.log(response.status)
+                } catch(e) {
+                    console.log(e)
+                }
             }
         }
         return info

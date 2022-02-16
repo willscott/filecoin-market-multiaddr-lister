@@ -24,6 +24,7 @@
     "@filecoin-shipyard/lotus-client-provider-nodejs": "^1.0.5",
     "@filecoin-shipyard/lotus-client-rpc": "^1.1.4",
     "@filecoin-shipyard/lotus-client-schema": "^4.0.7",
-    "multiaddr": "^10.0.1"
+    "multiaddr": "^10.0.1",
+    "node-fetch": "^3.2.0"
   }
 }
